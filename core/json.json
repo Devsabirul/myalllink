@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "title": "Web Link",
+        "icon": "base/assets/img/onlyfans.png"
+    },
+    {
+        "id": 2,
+        "title": "Facebook",
+        "icon": "base/assets/img/fb.png"
+    }
+]

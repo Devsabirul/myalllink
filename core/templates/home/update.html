@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updated apge</title>
+    <link rel="stylesheet" href="{% static 'base/assets/css/index.css' %}">
+    <link href="{% static 'base/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+      {% comment %} icon {% endcomment %}
+  <script src="https://kit.fontawesome.com/7c95b809d8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- MODEL  -->
+<div class="model_wrap_ model_active">
+    <div class="model_container">
+        <div class="model_header">
+            <div class="header_left">
+                <h5>Update Links </h5>
+            </div>
+            <div class="header_right">
+                <a href="/feed">
+                    <i class="fa-solid fa-circle-xmark close"></i>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <div class="clear"></div>
+        <div class="model_body_">
+            <div class="container">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{links}}
+                    <button class="btn btn-sm btn-primary mb-3">Update Link</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- model end  -->
+</body>
+</html>

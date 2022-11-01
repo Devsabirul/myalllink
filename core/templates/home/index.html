@@ -1,0 +1,121 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}All Link | Feed{% endblock title %}
+{% block full_name %}{{profile.user.first_name}} {{profile.user.last_name}} {% endblock full_name %}
+{% block nav_name %} {{profile.user}}  {% endblock nav_name %}
+{% block body %}
+<main id="main" class="main">
+    <!-- MODEL  -->
+    <!-- first model start  -->
+    <div class="model_wrap_">
+        <div class="model_container">
+            <div class="model_header">
+                <div class="header_left">
+                    <h5>Add Links </h5>
+                </div>
+                <div class="header_right">
+                    <i class="fa-solid fa-circle-xmark close"></i>
+                </div>
+            </div>
+            <hr>
+            <div class="clear"></div>
+            <div class="model_body_">
+                <div class="container">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{links}}
+                        <button class="btn btn-sm btn-primary mb-3">Add Link</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- end  -->
+    <!-- model end  -->
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-lg-8 col-sm-12">
+                <div class="content_wrap">
+                    {% if posts|length > 0 %}
+                    {% for post in posts %}
+                    <div class="content_card">
+                        <div class="header_">
+                            <div class="left_">
+                                <div class="img_box">
+                                    <img src="{{profile.avatar.url}}"
+                                        alt="">
+                                </div>
+                                <div class="username">
+                                    <p> {{profile.user.first_name}}  {{profile.user.last_name}}<span>@{{profile.user}}</span></p>
+                                </div>
+                            </div>
+                            <div class="header_action">
+                                <a href="{% url 'update_post' post.id %}" class="btn_ edit_btn" id="edit_btn">
+                                    <i class="fa-solid fa-pen-to-square">
+                                    </i>
+                                </a>
+                                <form action="delete" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" class="input_post_id" name="id" value="{{post.id}}">
+                                    <button class="btn_ delete_btn"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <abbr title="{{post.url}}">
+                            <div class="body d-flex">
+                                <div class="icon">
+                                    <img src="{{post.image.url}}" alt="{{post.image.url}}">
+                                </div>
+                                <div class="content_">
+                                    <a href="{{post.url}}" target="_shishir">
+                                        <div class="title_">
+                                            <h5> {{post.title}} </h5>
+                                        </div>
+                                        <div class="link_">
+                                            <a href="{{post.url}}" target="_shishir">
+                                                Click here to get link
+                                            </a>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </abbr>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p class="text-center">Data empty... please add link.</p>
+                    {% endif %}
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 d-none d-lg-block">
+                <!-- Friends List Activity -->
+                <div class="card">
+                    <h5 class="card-title text-left">Friend list : <span> {{profile.friends.count}} Friends</span></h5>
+                    <div class="card-body">
+                        {% for friend in friend_list %}
+                        <div class="follower d-flex">
+                            <div class="imeage">
+                                <img src="https://images.pexels.com/photos/596887/pexels-photo-596887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    alt="">
+                            </div>
+                            <div class="follower_info">
+                                <a href="">
+                                    <p>{{friend}}</p>
+                                </a>
+                                <a href="friend/{{profile.id}}/{{username}}" class="btn_">UnFriend</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div><!-- End Friends List Activity -->
+            </div>
+        </div>
+    </div>
+</main><!-- End #main -->
+{% endblock body %}
+{% block script %}
+<script>
+</script>
+{% endblock script %}

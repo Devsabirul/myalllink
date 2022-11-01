@@ -1,0 +1,272 @@
+/* remove scroolbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* end  */
+.clear {
+    clear: both;
+}
+
+.content_wrap {
+    width: 100%;
+    height: 85vh;
+    overflow: scroll;
+}
+
+.content_card {
+    width: 100%;
+    height: 110px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 134, 230, .5);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* for conent  */
+.img_box {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    overflow: hidden;
+    float: left;
+    margin-right: 10px;
+    border: 1px solid red;
+}
+
+.img_box img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.username {
+    width: 100%;
+    height: auto;
+    /* padding-top: 5px; */
+}
+
+.username p {
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.username span {
+    font-weight: 200;
+    color: gray;
+}
+
+.username:hover {
+    color: blue;
+    transition: all .5s;
+}
+
+.username:hover span {
+    color: #ab4747;
+    transition: all .5s;
+}
+
+.icon {
+    margin-left: 25px;
+}
+
+.icon img {
+    width: 45px;
+    border-radius: 10px;
+}
+
+.body {
+    cursor: pointer;
+    margin-top: -5px;
+    float: left;
+}
+
+.content_card:hover {
+    background: rgb(236 236 236 / 50%);
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.content_ {
+    margin-left: 10px;
+    line-height: 2px;
+}
+
+.link_ a {
+    font-size: 15px;
+}
+
+.title_ h5 {
+    font-weight: 700;
+    color: #000000cc;
+    font-size: 17px;
+}
+
+/* for model  */
+.model_wrap_ {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease-in-out;
+    z-index: 999;
+}
+
+.model_wrap_Update {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease-in-out;
+    z-index: 999;
+}
+
+.model_container {
+    background: white;
+    width: 600px;
+    max-width: 90%;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.header_left h5 {
+    font-weight: 700;
+}
+
+.header_left {
+    display: inline-block;
+    float: left;
+}
+
+.header_right {
+    right: 0;
+}
+
+.header_right {
+    text-align: right;
+    font-size: 20px;
+}
+
+.header_right i:hover {
+    color: purple;
+    cursor: pointer;
+}
+
+/* model end  */
+
+.model_active {
+    display: flex;
+}
+
+/* model content  */
+.icon_ img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.media_link p {
+    text-align: center !important;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* model coneten end  */
+
+/* link added  */
+select#id_icon {
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #bbbbbb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* follower section  */
+.imeage {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.follower_info {
+    line-height: 5px;
+    margin-top: 10px;
+}
+
+.follower {
+    border-radius: 10px;
+    border: .2px solid #dadada;
+    padding: 5px;
+    margin: 10px;
+}
+
+.imeage img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.follower_info a {
+    font-size: 15px;
+    color: gray;
+}
+
+.follower_info p {
+    color: black;
+    font-weight: 600;
+}
+
+.follower_info a:hover {
+    color: blue;
+}
+
+/* action button  */
+.left_ {
+    width: 80%;
+    float: left;
+}
+
+.header_action {
+    text-align: right;
+}
+
+.header_action button {
+    border: none;
+    background: none;
+    color: #d3d3d3;
+    font-size: 15px;
+}
+
+button.btn_.delete_btn {
+    color: #ff000045;
+}
+
+button.btn_.share_btn {
+    color: #00048057;
+}
+
+.header_action form {
+    display: inline-block;
+}
+
+/* search page  */
+a.btn_.btn_primary {
+    color: blue;
+    font-weight: 500;
+}
+
+/* Serarch end  */
