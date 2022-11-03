@@ -3,7 +3,6 @@
 {% block title %}All Link | Feed{% endblock title %}
 {% block full_name %}{{profile.user.first_name}} {{profile.user.last_name}} {% endblock full_name %}
 {% block nav_name %} {{profile.user}}  {% endblock nav_name %}
-
 {% block body %}
 <main id="main" class="main">
     <!-- MODEL  -->
@@ -86,11 +85,10 @@
                     <div class="card-body">
                         {% for friend in friend_list %}
                         <div class="follower d-flex">
-                            <!--
                             <div class="imeage">
                                 <img src="https://images.pexels.com/photos/596887/pexels-photo-596887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                                     alt="">
-                            </div>-->
+                            </div>
                             <div class="follower_info">
                                 <a href="">
                                     <p>{{friend}}</p>

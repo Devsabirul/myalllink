@@ -1,9 +1,7 @@
-{% extends 'base/base.html' %}
-{% load static %}
-{% block title %}All Link | Feed{% endblock title %}
+{% extends "base/base.html" %}
+{% block title %}Profile{% endblock title %}
 {% block full_name %}{{profile.user.first_name}} {{profile.user.last_name}} {% endblock full_name %}
-{% block nav_name %} {{profile.user}}  {% endblock nav_name %}
-
+{% block nav_name %} {{profile.user}} {% endblock nav_name %}
 {% block body %}
 <main id="main" class="main">
     <!-- MODEL  -->
@@ -30,7 +28,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <!-- end  -->
     <!-- model end  -->
@@ -38,18 +35,61 @@
         <div class="row">
             <div class="col-lg-8 col-sm-12">
                 <div class="content_wrap">
+                    <div class="profile_card d-flex align-content-center">
+                        <div class="profile_picture">
+                            <img src="{{profile.avatar.url}}" alt="">
+                        </div>
+                        <div class="profile_content">
+                            <div class="header_">
+                                <h3>{{profile.user.first_name}} {{profile.user.last_name}}</h3>
+                                <p>Web Designer</p>
+                            </div>
+                            <div class="middel d-flex justify-content-between">
+                                <div class="post">
+                                    <p>Posts</p>
+                                    <h5>{{count_post}}</h5>
+                                </div>
+                                <div class="friend_count">
+                                    <p>Friends</p>
+                                    <h5>{{profile.friends.count}}</h5>
+                                </div>
+
+                                <div class="follower_count">
+                                    <p>Followers</p>
+                                    <h5>9.0k</h5>
+                                </div>
+                            </div>
+
+                            <div class="bottom">
+                                <a href="" style="width: 100%;" class="btn btn-sm btn-outline-secondary">Edit Info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <hr style="color:#848484;margin-bottom: 30px;">
                     {% if posts|length > 0 %}
                     {% for post in posts %}
                     <div class="content_card">
                         <div class="header_">
                             <div class="left_">
                                 <div class="img_box">
-                                    <img src="{{post.profile.avatar.url}}"
-                                        alt="">
+                                    <img src="{{profile.avatar.url}}" alt="">
                                 </div>
                                 <div class="username">
-                                    <p> {{post.profile.user.first_name}}  {{post.profile.user.last_name}}<span> @{{post.profile.user}}</span></p>
+                                    <p> {{profile.user.first_name}}
+                                        {{profile.user.last_name}}<span>@{{profile.user}}</span></p>
                                 </div>
+                            </div>
+                            <div class="header_action">
+                                <a href="{% url 'update_post' post.id %}" class="btn_ edit_btn" id="edit_btn">
+                                    <i class="fa-solid fa-pen-to-square">
+                                    </i>
+                                </a>
+                                <form action="delete" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" class="input_post_id" name="id" value="{{post.id}}">
+                                    <button class="btn_ delete_btn"><i class="fa-solid fa-trash"></i></button>
+                                </form>
                             </div>
                         </div>
                         <abbr title="{{post.url}}">
@@ -106,7 +146,3 @@
     </div>
 </main><!-- End #main -->
 {% endblock body %}
-{% block script %}
-<script>
-</script>
-{% endblock script %}

@@ -1,9 +1,7 @@
-{% extends 'base/base.html' %}
-{% load static %}
-{% block title %}All Link | Feed{% endblock title %}
+{% extends "base/base.html" %}
+{% block title %}Profile{% endblock title %}
 {% block full_name %}{{profile.user.first_name}} {{profile.user.last_name}} {% endblock full_name %}
-{% block nav_name %} {{profile.user}}  {% endblock nav_name %}
-
+{% block nav_name %} {{profile.user}} {% endblock nav_name %}
 {% block body %}
 <main id="main" class="main">
     <!-- MODEL  -->
@@ -38,17 +36,49 @@
         <div class="row">
             <div class="col-lg-8 col-sm-12">
                 <div class="content_wrap">
+                    <div class="profile_card d-flex align-content-center">
+                        <div class="profile_picture">
+                            <img src="{{user_profile.avatar.url}}" alt="">
+                        </div>
+                        <div class="profile_content">
+                            <div class="header_">
+                                <h3>{{user_profile.user.first_name}} {{user_profile.user.last_name}}</h3>
+                                <p>Senior Journalist</p>
+                            </div>
+                            <div class="middel d-flex justify-content-between">
+                                <div class="post">
+                                    <p>Posts</p>
+                                    <h5>50</h5>
+                                </div>
+                                <div class="friend_count">
+                                    <p>Friends</p>
+                                    <h5>{{user_profile.friends.count}}</h5>
+                                </div>
+
+                                <div class="follower_count">
+                                    <p>Followers</p>
+                                    <h5>980</h5>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <a href="" class="btn btn-sm btn-outline-primary">Chat</a>
+                                <a href="" class="btn btn-sm btn-primary">Add Friend</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <hr style="color:#b9b9b9;margin-bottom: 30px;">
                     {% if posts|length > 0 %}
                     {% for post in posts %}
                     <div class="content_card">
                         <div class="header_">
                             <div class="left_">
                                 <div class="img_box">
-                                    <img src="{{post.profile.avatar.url}}"
-                                        alt="">
+                                    <img src="{{user_profile.avatar.url}}" alt="">
                                 </div>
                                 <div class="username">
-                                    <p> {{post.profile.user.first_name}}  {{post.profile.user.last_name}}<span> @{{post.profile.user}}</span></p>
+                                    <p> {{user_profile.user.first_name}}
+                                        {{user_profile.user.last_name}}<span>@{{user_profile.user}}</span></p>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +118,7 @@
                         <div class="follower d-flex">
                             <!--
                             <div class="imeage">
-                                <img src="https://images.pexels.com/photos/596887/pexels-photo-596887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                <img src=""
                                     alt="">
                             </div>-->
                             <div class="follower_info">
@@ -106,7 +136,3 @@
     </div>
 </main><!-- End #main -->
 {% endblock body %}
-{% block script %}
-<script>
-</script>
-{% endblock script %}
